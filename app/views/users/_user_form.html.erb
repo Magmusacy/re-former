@@ -1,0 +1,24 @@
+<%= form_with model: user do |form| %>
+  <div>
+    <div><%= form.label :username, 'Username:' %></div>
+    <div><%= form.text_field :username, placeholder: 'xXxSrakaxXx' %></div>
+  </div>
+  <div>
+    <div><%= form.label :email, 'Email:' %></div>
+    <div><%= form.text_field :email, placeholder: 'e.g. foo@bar.com' %></div>
+  </div>
+  <div>
+    <div><%= form.label :password, 'Password:' %></div>
+    <div><%= form.password_field :password %></div>
+  </div>
+  <%= form.submit 'submit' %>
+<% end %>
+
+<% if user.errors.any? %>
+  <p>You submitted form has <%= user.errors.count %> errors</p>
+  <ul>
+  <% user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
